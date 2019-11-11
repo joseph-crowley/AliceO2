@@ -149,13 +149,14 @@ void Detector::ConstructGeometry()
   }
   // A Side
 
-  Float_t xa[Geometry::NCellsA] = {-12.7958, -6.6958, 0.5958, 6.6958, 12.7958, -12.7958, -6.6958, 
-                                  0.5958, 6.6958, 12.7958, -14.1258, -8.0258, 8.0258, 14.1258, -12.7958,
-                                  -6.6958, -0.5958, 6.6958, 12.7958, -12.7958, -6.6958, -0.5958, 6.6958, 12.7958};
+  Float_t xa[Geometry::NCellsA] = {-12.5028, -6.4028, 0.3028, 6.4028, 12.5028, -12.5028, -6.4028, 0.3028, 6.4028, 12.5028,
+                                   -13.8328, -7.7328, 7.7328, 13.8328, -12.5028, -6.4028, 0, 6.4028, 12.5028, -12.5028, 
+                                   -6.4028, 0, 6.4028, 12.5028};
 
-  Float_t ya[Geometry::NCellsA] = {11.5872, 11.5872, 14.1428, 12.8128, 12.8128, 5.4872, 5.4872, 8.0428, 
-                                  6.7128, 6.7128, -0.6128, -0.6128, 0.6128, 0.6128, -6.7128, -6.7128, 
-                                  -8.0428, -5.4872, -5.4872, -12.8128, -12.8128, -14.1428, -11.5872, -11.5872};
+  Float_t ya[Geometry::NCellsA] = {12.8571, 12.8571, 12.8729, 11.5429, 11.5429, 6.7571, 6.7571, 6.7729, 5.4429, 5.4429,
+                                    0.6571, 0.6571, -0.6571, -0.6571, -5.4429, -5.4429, -7., -6.7571, -6.7571, -11.5429, 
+                                    -11.5429, -12.9, -12.8571, -12.8571};
+
 
   TGeoVolumeAssembly* stlinA = new TGeoVolumeAssembly("0STL"); // A side mother
   TGeoVolumeAssembly* stlinC = new TGeoVolumeAssembly("0STR"); // C side mother
@@ -379,7 +380,7 @@ TGeoVolume* Detector::constructFrameGeometry()
   TGeoBBox* frame2 = new TGeoBBox("frame2", sFrame2X / 2, sFrame2Y / 2, sFrameZ / 2);
   TGeoBBox* quartzRadiator = new TGeoBBox("quartzRadiator", sQuartzRadiatorSide / 2, sQuartzRadiatorSide / 2, sQuartzRadiatorZ / 2);
   TGeoBBox* rect1 = new TGeoBBox("rect1", sRect1X / 2, sRect1Y / 2, sFrameZ / 2);
-  TGeoBBox* rect2 = new TGeoBBox("rect2", sRect2X / 2, sRect2Y / 2 + sEps, sFrameZ / 2 - sMountZ / 2);
+  TGeoBBox* rect2 = new TGeoBBox("rect2", sRect2X / 2, sRect2Y / 2 + sEps, sFrameZ / 2 - sMountZ / 2 + sEps);
   TGeoBBox* rect3 = new TGeoBBox("rect3", sRect3X / 2, sRect3Y / 2, sFrameZ / 2);
   TGeoBBox* rect4 = new TGeoBBox("rect4", sRect4X / 2, sRect4Y / 2, sFrameZ / 2);
   TGeoBBox* rect5 = new TGeoBBox("rect5", sRect5X / 2 + sEps, sRect5Y / 2 + sEps, sFrameZ / 2 + sEps);
